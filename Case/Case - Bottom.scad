@@ -4,7 +4,7 @@ wallThickness = 2;
 
 insideWidth = 35;
 insideHeight = 82 + /* Divider */ wallThickness;
-insideDepth = 25;
+insideDepth = 30;
 
 
 caseWidth = insideWidth + (wallThickness * 2);
@@ -21,7 +21,7 @@ difference() {
     
     // Port #1 (USB)
     portOneWidth = insideWidth / 4;
-    portOneDepth = insideDepth / 8;
+    portOneDepth = 3.125;
     
     translate([0, caseHeight / 2, -(caseDepth / 2) + (portOneDepth / 2) + wallThickness]) {
         cube([portOneWidth, insideHeight / 2, portOneDepth], center = true);
@@ -29,9 +29,9 @@ difference() {
     
     // Port #2 (JST)
     portTwoWidth = insideWidth / 2;
-    portTwoDepth = insideDepth / 4;
+    portTwoDepth = 6.25;
     
-    translate([0, -(insideHeight / 2), (insideDepth / 4)]) {
+    translate([0, -(insideHeight / 2), 0]) {
         cube([portTwoWidth, insideHeight / 2, portTwoDepth], center = true);
     }
 }
