@@ -1,9 +1,8 @@
-28byj48_shaft_collar_radius = 9/2;
-28byj48_shaft_collar_height = 1.5;
+tolerance = 0;
 
 28byj48_shaft_radius = 5/2;
 28byj48_shaft_height = 10;
-28byj48_shaft_slotted_width = 3;
+28byj48_shaft_slotted_width = 3 + tolerance;
 28byj48_shaft_slotted_height = 6;
 
 eps = 0.01;
@@ -20,5 +19,3 @@ module shaft() {
         }
     }
 }
-
-shaft();

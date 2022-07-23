@@ -1,4 +1,6 @@
-use <../modules/shaft.scad>
+include <../modules/shaft.scad>
+
+tolerance = 0.25;
 
 $fn = 60;
 
@@ -7,19 +9,29 @@ adapterRadius = 7.5;
 
 hookWidth = 2.75;
 hookDepth = 8;
-hookHeight = adapterHeight / 2;
+hookHeight = 12.5;
 
 divider = 2;
 
 module hook() {
-    cube([hookWidth, hookDepth, hookHeight]);
+    cube([hookWidth, hookDepth, hookHeight], center = true);
 }
 
-difference() {
-    cylinder(h = adapterHeight, r = adapterRadius);
-    shaft();
-    
-    translate([-(hookWidth / 2), -(adapterRadius / 2), adapterHeight / 2]) {
-        hook();
+module adapter() {
+    difference() {
+        cylinder(h = adapterHeight, r = adapterRadius, center = true);
+        
+        translate([0, 0, -(adapterHeight / 2)]) {
+            shaft();
+        }
+
+        translate([0, 0, (adapterHeight / 2) - (hookHeight / 2)]) {
+            hook();
+        }
     }
 }
+
+rotate([0, 180, 0]) {
+    adapter();
+}
+

@@ -10,10 +10,19 @@ outerDiameter = 15;
 tubeThickness = 1;
 
 // The length of the adapter
-height = 25;
+height = 20;
 
 // The length of the lip
 lipHeight = 1;
+
+// Version 2
+// tubeThickness = 2;
+
+// Version 3
+// outerDiameter = 14;
+
+// Version 4
+// innerDiameter = 13.5;
 
 module adapter() {
     difference() {
