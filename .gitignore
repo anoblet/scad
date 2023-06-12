@@ -1,6 +1,2 @@
-*
-!*/
-
-!.gitignore
-!**/*.scad
-!**/*.stl
+.wireit
+node_modules

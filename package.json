@@ -2,24 +2,46 @@
   "name": "scad",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "commit": "git add . && git commit -m \"save\" && git push",
-    "tag": "git tag -a v$(npm version) -m \"save\" && git push --tags",
-    "watch": "chokidar \"**/*.scad\" -c \"npm run commit\""
+  "keywords": [],
+  "homepage": "https://github.com/anoblet/scad#readme",
+  "bugs": {
+    "url": "https://github.com/anoblet/scad/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anoblet/scad.git"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anoblet/scad/issues"
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "commit": "npm run git:commit",
+    "git:commit": "wireit",
+    "git:push": "wireit",
+    "push": "npm run git:push"
   },
-  "homepage": "https://github.com/anoblet/scad#readme",
-  "dependencies": {
-    "chokidar-cli": "^3.0.0"
+  "devDependencies": {
+    "sort-package-json": "^2.4.1",
+    "wireit": "^0.9.5"
+  },
+  "wireit": {
+    "git:commit": {
+      "command": "git add . && git commit --allow-empty-message -m \"\"",
+      "dependencies": [
+        "sort-package-json"
+      ]
+    },
+    "git:push": {
+      "command": "git push",
+      "dependencies": [
+        "git:commit"
+      ]
+    },
+    "sort-package-json": {
+      "command": "sort-package-json",
+      "files": [
+        "**/package.json"
+      ]
+    }
   }
 }

@@ -24,6 +24,17 @@ lipHeight = 1;
 // Version 4
 // innerDiameter = 13.5;
 
+lipHeight = 2;
+
+// Version 5
+// innerDiameter = 12.7;
+
+// Version 6
+innerDiameter = 12.75;
+
+// Version 7
+// innerDiameter = 13;
+
 module adapter() {
     difference() {
         outerShell();

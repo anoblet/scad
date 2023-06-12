@@ -7,7 +7,7 @@ $fn = 60;
 adapterHeight = 25;
 adapterRadius = 7.5;
 
-hookWidth = 2.75;
+hookWidth = 3;
 hookDepth = 8;
 hookHeight = 12.5;
 
