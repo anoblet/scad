@@ -1,6 +1,6 @@
-cubeLength = 10;
-bridgeWidth = 25;
-bridgeHeight = 1;
+cubeLength = 5;
+bridgeWidth = 150;
+bridgeHeight = 0.8;
 
 translate([0, 0, cubeLength / 2]) {
     cube([bridgeWidth + cubeLength, cubeLength, bridgeHeight], center = true);

@@ -18,11 +18,7 @@ translate([-(blockLength / 4), -((blockLength / 2) + ((tongueLength - tolerance)
 }
 
 difference() {
-    if(debug) {
-        %cube([blockLength, blockLength, blockHeight], center = true);
-    } else {
-        cube([blockLength, blockLength, blockHeight], center = true);
-    }
+    cube([blockLength, blockLength, blockHeight], center = true);
 
     union() {
         translate([-((blockLength / 2) - (tongueLength / 2)), -(blockLength / 4), 0]) {

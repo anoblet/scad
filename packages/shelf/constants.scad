@@ -21,5 +21,5 @@ screwDiameter = blockLength / 4;
 screwHeight = blockHeight / 2;
 
 pipeDiameter = blockLength / 2;
-pipeHeight = 25 - screwHeight - slop;
+pipeHeight = 100;
 
