@@ -1,4 +1,7 @@
 $fn = 128;
+
+layerHeight = 0.2;
+
 pitch = 1.25;
 scale = 0.5;
 slop = 0.25;
