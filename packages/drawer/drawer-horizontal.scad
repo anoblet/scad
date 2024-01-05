@@ -1,7 +1,7 @@
 wallThickness = 4;
 
-width = 70;
-depth = 230;
+width = 72;
+depth = 232;
 height = 40;
 
 rotate([0, 0, 45]) {

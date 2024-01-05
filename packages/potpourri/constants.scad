@@ -1,5 +1,9 @@
-width = 40;
-depth = 100;
-height = 10;
+width = 80;
+depth = 120;
+height = 60;
 
-thickness = 4;
+thickness = 2;
+
+legWidth = thickness / 2;
+legDepth = 10;
+legHeight = 10;

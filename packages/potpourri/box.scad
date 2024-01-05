@@ -1,15 +1,12 @@
-
 include <constants.scad>;
 
-module lid() {
+module box() {
     difference() {
-        union() {
-            cube([width, depth, thickness], center = true);
+        difference() {
+            cube([width, depth, height], center = true);
             translate([0, 0, thickness]) {
-                difference() {
-                    cube([width - thickness, depth - thickness, thickness], center = true);
-                }
-            }
+                cube([width - thickness, depth - thickness, height - thickness], center = true);
+            }    
         }
 
         cube([thickness, depth - (thickness * 2), height], center = true);
@@ -38,6 +35,27 @@ module lid() {
             cube([thickness, (depth * 2/3) - (thickness / 2) , height], center = true);
         }
     }
+
+    module leg()  {
+        cube([legWidth, legDepth, legHeight], center = true);
+    }
+
+    // Legs
+    translate([-((width / 2) - (legWidth / 2)), -((depth / 2) - (legDepth / 2)), -(height / 2) ]) {
+        leg();
+    }
+
+    translate([((width / 2) - (legWidth / 2)), -((depth / 2) - (legDepth / 2)), -(height / 2) ]) {
+        leg();
+    }
+
+    translate([-((width / 2) - (legWidth / 2)), ((depth / 2) - (legDepth / 2)), -(height / 2) ]) {
+        leg();
+    }
+
+    translate([((width / 2) - (legWidth / 2)), ((depth / 2) - (legDepth / 2)), -(height / 2) ]) {
+        leg();
+    }
 }
 
-lid();
+box();
