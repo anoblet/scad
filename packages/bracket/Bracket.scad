@@ -1,45 +1,36 @@
-include <BOSL/constants.scad>
-use <BOSL/shapes.scad>
+include <BOSL2/std.scad>
 
-$fn = 100;
+width = 100;
+length = 50;
+thickness = 5;
 
-border = 10;
-height = 150;
-thickness = 10;
-width = 150;
-
-hookHeight = 10;
-hookLength = 10;
-
-screwRadius = 2;
+module triangle() {
+    right_triangle([width, length]);
+}
 
 difference() {
-    right_triangle([width, thickness, height]);
-    translate([border / 2, 0, border / 2 ]) {
-        color("red") {
-            right_triangle([width - (border * 1.75), thickness, height - ( border * 1.75 )]);
+    linear_extrude(height = thickness) {
+        difference() {
+            triangle();
+            offset(delta = -(thickness)) {
+                triangle();
+            }
         }
     }
-    
-    translate([0, thickness / 2, height / 4]) {
-        rotate([90, 0, 90]) {
-            cylinder(h = border, r= screwRadius);
-        }
-        
+
+    translate([0, (length * 3/4) - (thickness), 0]) {
+        cube([thickness, thickness, thickness]);
     }
-    
-        translate([0, thickness / 2, (height / 4) * 3]) {
-        rotate([90, 0, 90]) {
-            cylinder(h = border, r= screwRadius);
-        }
-        
+
+    translate([0, (length * 1/4), 0]) {
+        cube([thickness, thickness, thickness]);
     }
 }
 
-translate([width - border, 0, 0]) {
-    cube([hookLength, thickness, border / 2]);
-    
-    translate([hookLength - (border / 4), (thickness / 4), 0]) {
-        cube([border / 4, thickness / 2, hookHeight]);
-    }
+translate([width - (thickness * 2), 0, 0]) {
+    cube([thickness * 2, thickness, thickness]);
+}
+
+translate([width, 0, 0]) {
+    cube([thickness, thickness * 2, thickness]);
 }
