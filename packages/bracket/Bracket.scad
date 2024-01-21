@@ -28,11 +28,11 @@ difference() {
         }
     }
 
-    translate([0, (length / 2) - (holeDiameter), (thickness / 2)]) {
+    translate([0, (length * 1/2), (thickness / 2)]) {
         hole();
     }
 
-    translate([0, (length * 1/4) + (holeDiameter), (thickness / 2)]) {
+    translate([0, (length * 1/3), (thickness / 2)]) {
         hole();
     }
 }
@@ -43,4 +43,8 @@ translate([width - (thickness * 2), 0, 0]) {
 
 translate([width, 0, 0]) {
     cube([thickness / 2, thickness, thickness]);
+}
+
+translate([width - thickness / 2, thickness, 0]) {
+    cube([thickness, thickness / 2, thickness]);
 }
