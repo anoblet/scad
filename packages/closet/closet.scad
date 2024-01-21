@@ -8,7 +8,7 @@ lipHeight = 2;
 
 topDiameter = 8;
 // topDiameter = 10;
-topHeight = 25;
+topHeight = 10;
 // topHeight = 18;
 
 cylinder(d = bottomDiameter, h = bottomHeight, center = true);
