@@ -4,7 +4,7 @@ $fn = 128;
 
 width = 150;
 length = 100;
-thickness = 10;
+thickness = 5;
 
 holeDiameter = thickness / 2;
 
@@ -32,7 +32,7 @@ difference() {
         hole();
     }
 
-    translate([0, (length * 1/3), (thickness / 2)]) {
+    translate([0, (length * 1/4), (thickness / 2)]) {
         hole();
     }
 }
@@ -42,9 +42,9 @@ translate([width - (thickness * 2), 0, 0]) {
 }
 
 translate([width, 0, 0]) {
-    cube([thickness / 2, thickness, thickness]);
+    cube([thickness / 2, thickness * 2, thickness]);
 }
 
-translate([width - thickness / 2, thickness, 0]) {
+translate([width - thickness / 2, thickness * 2, 0]) {
     cube([thickness, thickness / 2, thickness]);
 }
