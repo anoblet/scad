@@ -1,11 +1,14 @@
+goldenRatio = 1.618;
+
 wallThickness = 4;
 
 /*
     @see https://www.omnicalculator.com/math/golden-ratio
 */
+
 width = 100;
-depth = 61.803;
-height = depth / 3;
+depth = width * goldenRatio;
+height = 40;
 
 rotate([0, 0, 45]) {
     difference() { 
