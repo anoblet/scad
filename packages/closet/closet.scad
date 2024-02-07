@@ -1,6 +1,6 @@
 $fn = 128;
 
-bottomDiameter = 10;
+bottomDiameter = 9;
 bottomHeight = 25;
 
 lipDiameter = 14;
@@ -8,7 +8,7 @@ lipHeight = 2;
 
 topDiameter = 8;
 // topDiameter = 10;
-topHeight = 10;
+topHeight = 8;
 // topHeight = 18;
 
 cylinder(d = bottomDiameter, h = bottomHeight, center = true);
