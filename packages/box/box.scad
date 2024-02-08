@@ -1,20 +1,24 @@
-goldenRatio = 1.618;
-
-wallThickness = 4;
-
 /*
     @see https://www.omnicalculator.com/math/golden-ratio
 */
 
-width = 100;
-depth = width * goldenRatio;
-height = 40;
+// Constants
+goldenRatio = 1.618;
+
+// Parameters
+divisions = 4; // Binary
+height = 64; // Binary
+thickness = 4; // Binary
+width = 128; // Binary
+
+// depth = width * goldenRatio;
+depth = 96;
 
 rotate([0, 0, 45]) {
     difference() { 
         cube([width, depth, height], center = true);
-        translate([0, 0, wallThickness]){
-            cube([width - wallThickness, depth - wallThickness, height], center = true);
+        translate([0, 0, thickness]){
+            cube([width - thickness, depth - thickness, height], center = true);
         }
     }
 }
