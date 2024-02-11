@@ -5,13 +5,13 @@ $fn = 128; // Set the resolution of the model
 
 layerHeight = 0.2;
 
-height = layerHeight * 1;
+height = layerHeight * 5;
 
-width = 50;
-depth = 170;
+width = 169;
+depth = 169;
 
-dovetailWidth = 15;
-dovetailHeight = 8;
+dovetailWidth = width / 10;
+dovetailHeight = width / 20;
 dovetailSlide = height;
 
 fillet = 18;
@@ -19,12 +19,13 @@ fillet = 18;
 difference() {
     diff() 
         cuboid([width,depth,height]){
-            attach(LEFT) dovetail("male", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
+            // attach(LEFT) dovetail("male", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
+            // tag("remove")attach(FRONT) dovetail("female", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
+            tag("remove")attach(LEFT) dovetail("female", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
             attach(FRONT) dovetail("male", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
-            // tag("remove")attach(FRONT) dovetail("female", slide=height, width=15, height=8);
         }
 
-    translate([(width / 2), (depth / 2), 0])
+    translate([(width / 2) - (fillet / 2), (depth / 2) - (fillet / 2), 0])
     cylinder(r=fillet, h= height, center = true);
 }
 
