@@ -9,7 +9,7 @@ goldenRatio = 1.618;
 divisions = 4; // Binary
 height = 64; // Binary
 thickness = 4; // Binary
-width = 128; // Binary
+width = 192; // Binary
 
 // depth = width * goldenRatio;
 depth = 96;

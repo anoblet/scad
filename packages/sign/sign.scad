@@ -3,12 +3,12 @@ $fn = $preview ? 32 : 64;
 height = 2;
 
 baseDiameter = 50;
-imageDiameter = 40;
+imageDiameter = 25;
 
 // Image
 
 module image() {
-    import("sun-svgrepo-com.svg", center = true);
+    import("svg/toilet.svg", center = true);
 }
 
 // Border
@@ -37,15 +37,15 @@ color("black") {
     cylinder(d=baseDiameter, h=height, center=true);
 }
 
-color("white") {
-    projection(cut = true) {
-    resize([imageDiameter, imageDiameter, height]) {
-        linear_extrude() {
-            // projection() {
-                image();
-            // }
-        }
-    }}
-}
+// color("white") {
+//     // projection(cut = true) {
+//     resize([imageDiameter, imageDiameter, height]) {
+//         linear_extrude() {
+//             // projection() {
+//                 image();
+//             // }
+//         }
+//     }
+// }
 
 
