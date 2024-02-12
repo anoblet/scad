@@ -21,8 +21,8 @@ difference() {
         cuboid([width,depth,height]){
             // attach(LEFT) dovetail("male", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
             // tag("remove")attach(FRONT) dovetail("female", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
-            tag("remove")attach(LEFT) dovetail("female", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
-            attach(FRONT) dovetail("male", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
+            tag("remove")position(TOP)attach(LEFT) dovetail("female", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
+            attach(FRONT)dovetail("male", slide=dovetailSlide, width=dovetailWidth, height=dovetailHeight);
         }
 
     translate([(width / 2) - (fillet / 2), (depth / 2) - (fillet / 2), 0])
