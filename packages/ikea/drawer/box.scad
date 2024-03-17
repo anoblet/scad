@@ -2,22 +2,12 @@ include <BOSL2/std.scad>
 
 $fn = $preview ? 32 : 128;
 
-/*
-    @see https://www.omnicalculator.com/math/golden-ratio
-*/
-
-// Constants
-goldenRatio = 1.618;
-
 // Parameters
-width = 64;
-depth = 128;
-height = 48;
+width = 100;
+depth = 10;
+height = 2;
 thickness = 2;
-
 rounding = thickness / 2;
-
-divisions = 4;
 
 rotate([0, 0, 45]) {
     difference() {
@@ -27,6 +17,13 @@ rotate([0, 0, 45]) {
             cube([width, depth, height], center = true);
         }
     }
+}
+
+/* 
+    Tolerance defined as OD or ON (Outside Diameter or Nominal)
+*/  
+tolerance = 0.2;
+
 
     // Division
     // translate([0,0, -((height / 2) - (height / 4) - (thickness / 2))]) {
