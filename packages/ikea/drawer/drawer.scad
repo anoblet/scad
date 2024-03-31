@@ -3,8 +3,8 @@ include <BOSL2/std.scad>
 $fn = $preview ? 32 : 128;
 
 // Parameters
-width = 98.5;
-depth = width;
+width = 98.5 * 2;
+depth = width / 2;
 height = 48;
 thickness = 2;
 rounding = thickness / 2;
