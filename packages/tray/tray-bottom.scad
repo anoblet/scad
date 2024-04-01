@@ -1,15 +1,16 @@
 $fn = $preview ? 32 : 128;
 
 // Parameters
-tolerance = 0.2;
-diameter = 224;
+tolerance = 0.1;
+diameter = 48;
 thickness = 2;
-bearingInnerDiameter = 8;
+baseHeight = 7;
+bearingInnerDiameter = 8 + tolerance;
 bearingOuterDiameter = 22;
-bearingHeight = 7 - (tolerance * 2);
+bearingHeight = 7;
 
-cylinder(d=diameter, h=thickness, center=true);
-translate([0, 0, (bearingHeight + thickness) / 2]) {
+cylinder(d=diameter, h=baseHeight, center=true);
+translate([0, 0, (bearingHeight + baseHeight) / 2]) {
     cylinder(d=bearingInnerDiameter, h=(bearingHeight), center=true);
 }
 
