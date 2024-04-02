@@ -1,7 +1,7 @@
 $fn = $preview ? 32 : 128;
 
 // Parameters
-tolerance = 0.2;
+tolerance = 0.1;
 // diameter = 192;
 diameter = 64;
 thickness = 2;
