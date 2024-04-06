@@ -1,8 +1,8 @@
 $fn = $preview ? 32 : 128;
 
 // Parameters
-tolerance = 0.05;
-diameter = 48;
+tolerance = 2;
+diameter = 192;
 thickness = 2;
 bearingInnerDiameter = 8;
 bearingOuterDiameter = 22;

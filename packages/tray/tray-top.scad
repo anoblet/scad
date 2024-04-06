@@ -1,14 +1,13 @@
 $fn = $preview ? 32 : 128;
 
 // Parameters
-tolerance = 0.1;
-// diameter = 192;
-diameter = 64;
+tolerance = 0.2;
+diameter = 192;
 thickness = 2;
 bearingInnerDiameter = 8;
 bearingOuterDiameter = 22 + tolerance;
-bearingHeight = 7 + tolerance;
-lipHeight = bearingHeight;
+bearingHeight = 7 - tolerance;
+lipHeight = 8;
 
 difference() {
     difference() {
