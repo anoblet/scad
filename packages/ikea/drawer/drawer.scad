@@ -3,8 +3,10 @@ include <BOSL2/std.scad>
 $fn = $preview ? 32 : 128;
 
 // Parameters
-width = 98.5 * 2;
-depth = width / 2;
+totalWidth = 296;
+columns = 3;
+width = (totalWidth / columns);
+depth = totalWidth / columns;
 height = 48;
 thickness = 2;
 rounding = thickness / 2;
@@ -18,8 +20,3 @@ rotate([0, 0, 45]) {
         }
     }
 }
-
-/* 
-    Tolerance defined as OD or ON (Outside Diameter or Nominal)
-*/  
-tolerance = 0.2;

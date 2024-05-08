@@ -3,13 +3,11 @@ include <BOSL2/std.scad>
 $fn = $preview ? 32 : 128;
 
 totalWidth = 270;
-columns = 3;
+columns = 5;
 
 // Parameters
 width = (totalWidth / columns) * 2;
-// width = 10;
-// depth = totalWidth / columns;
-depth = width;
+depth = (totalWidth / columns) * 4;
 height = 20;
 thickness = 2;
 rounding = thickness / 2;
