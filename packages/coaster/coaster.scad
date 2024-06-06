@@ -1,11 +1,11 @@
-$fn = 128;
+$fn = $preview ? 32 : 128;
 
 nozzleDiameter = 0.4;
 
-outerHeight = nozzleDiameter * 25;
-innerHeight = nozzleDiameter * 5;
-border = nozzleDiameter * 5;
-radius = nozzleDiameter * 125;
+outerHeight = 10;
+innerHeight = 2;
+border = 2;
+radius = 50;
 raisedHeight = nozzleDiameter;
 tolerance = nozzleDiameter;
 
@@ -18,11 +18,11 @@ translate([0, 0, border]) {
 
     cylinder(h = innerHeight, r = radius - border);
 
-    translate([-radius, 0, border]) {
-        cube([(radius * 2) - border, border, raisedHeight]);
-    };
+    // translate([-radius, 0, border]) {
+    //     cube([(radius * 2) - border, border, raisedHeight]);
+    // };
 
-    translate([0, -radius, border]) {
-        cube([border, (radius * 2) - border, raisedHeight]);
-    };
+    // translate([0, -radius, border]) {
+    //     cube([border, (radius * 2) - border, raisedHeight]);
+    // };
 }
