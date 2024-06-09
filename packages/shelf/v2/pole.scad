@@ -1,7 +1,6 @@
 include <./constants.scad>
 
 poleHeight = 64;
-tolerance = 0.2;
 
 difference() {
     union() {
