@@ -7,7 +7,7 @@
 // Basic comb parameters
 target_toothed_len = 84;
 tooth_pitch = 3.2;
-thickness = 4;
+thickness = 8;
 outer_tooth_extent = 24;
 tooth_tip_angle = 30;
 
