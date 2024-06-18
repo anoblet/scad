@@ -6,7 +6,7 @@ diameter = 192;
 thickness = 2;
 bearingInnerDiameter = 8;
 bearingOuterDiameter = 22 + tolerance;
-bearingHeight = 7 - tolerance;
+bearingHeight = 7 - (tolerance * 2);
 lipHeight = 8;
 
 difference() {

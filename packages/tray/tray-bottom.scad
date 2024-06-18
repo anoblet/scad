@@ -10,7 +10,7 @@ bearingHeight = 7;
 baseHeight = 7;
 
 cylinder(d=diameter, h=baseHeight, center=true);
-translate([0, 0, (bearingHeight + baseHeight) / 2]) {
-    cylinder(d=bearingInnerDiameter, h=(bearingHeight), center=true);
+translate([0, 0, ((bearingHeight - tolerance) + baseHeight) / 2]) {
+    cylinder(d=bearingInnerDiameter, h = bearingHeight - tolerance, center=true);
 }
 
