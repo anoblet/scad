@@ -4,8 +4,7 @@ include <./modules.scad>
 blockLength = 64;
 blockHeight = blockLength / 4;
 
-poleLength = blockHeight;
-pinLength = blockHeight / 2;
+columnLength = blockHeight;
 
 tolerance = 0.2;
 
@@ -17,8 +16,8 @@ translate([-((blockLength / 2) + ((tongueLength - tolerance) / 2)), blockLength 
     tongue();
 }
 
-translate([((blockLength - poleLength) / 2), -((blockLength - poleLength) / 2), (blockHeight / 2) + (screwHeight / 2)]) {
-    cube([pinLength, pinLength, screwHeight], center = true);
+translate([((blockLength - columnLength) / 2), -((blockLength - columnLength) / 2), (blockHeight / 2) + ((pinLength - (tolerance * 2)) / 2)]) {
+    cube([pinLength, pinLength, pinLength - (tolerance * 2)], center = true);
 }
 
 difference() {
@@ -39,8 +38,8 @@ difference() {
             }
         }
 
-        translate([((blockLength - poleLength) / 2), -((blockLength - poleLength) / 2), -((blockHeight / 2) - (screwHeight / 2))]) {
-            cube([pinLength, pinLength, screwHeight], center = true);
+        translate([((blockLength - columnLength) / 2), -((blockLength - columnLength) / 2), -((blockHeight / 2) - (pinLength / 2))]) {
+            cube([pinLength, pinLength, pinLength], center = true);
         }
     }
 }

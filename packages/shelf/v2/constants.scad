@@ -28,3 +28,6 @@ pipeHeight = 100;
 
 poleLength = blockHeight;
 pinLength = blockHeight / 2;
+
+// Refactor
+pipeLength = poleLength;
