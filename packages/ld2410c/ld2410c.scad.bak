@@ -1,0 +1,45 @@
+include <BOSL2/std.scad>
+
+$fa = $preview ? 12 : 0.01;
+$fs = $preview ? 2 : 0.01;
+
+width = 24;
+depth = 4;
+height = 12;
+
+wall = 2;
+
+espWidth = 64;
+espDepth = 36;
+espHeight = 48;
+
+rounding = wall / 2;
+
+plugHeight = 4;
+plugWidth = 4;
+plugDepth = 4;
+
+difference() {
+    cuboid([width + wall, depth + wall, height + wall]);
+    translate([0, 0, wall]) {
+        cuboid([width, depth, height]);
+    }
+}
+
+difference() {
+    translate([0, (espDepth - depth) / 2, -((height - espHeight + wall) / 2)]) {
+        difference() {
+            difference() {
+                cuboid([espWidth + wall, espDepth + wall, espHeight + wall], except = [BOTTOM, TOP], rounding = rounding);
+                translate([0, 0, wall]) {
+                    cuboid([espWidth, espDepth, espHeight]);
+                }
+            }
+
+            translate([((espWidth - plugWidth) / 2) + wall, 0, -(espHeight) / 2]) {
+                cuboid([plugWidth, plugDepth, plugHeight]);
+            }
+        }
+    }
+}
+
