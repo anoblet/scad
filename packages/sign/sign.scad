@@ -1,9 +1,10 @@
+use <NotoSans-VariableFont_wdth,wght.ttf>
+
 $fn = $preview ? 32 : 64;
 
 height = 2;
 
-baseDiameter = 50;
-imageDiameter = 25;
+baseDiameter = 24;
 
 // Image
 
@@ -34,7 +35,12 @@ module image() {
 // Base
 
 color("black") {
-    cylinder(d=baseDiameter, h=height, center=true);
+    cylinder(d=baseDiameter, h=height);
+}
+
+color("white") {
+    echo(textmetrics(text="A", font="Noto Sans", size=12, halign="center", valign="center"));
+    text("A", font="Noto Sans", size=12, halign="center", valign="center");
 }
 
 // color("white") {

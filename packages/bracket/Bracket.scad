@@ -4,7 +4,7 @@ $fn = 128;
 
 width = 150;
 length = 100;
-thickness = 5;
+thickness = 10;
 
 holeDiameter = thickness / 2;
 
