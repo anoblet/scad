@@ -1,8 +1,12 @@
-$fn = $preview ? 32 : 128;
+include <../common/common.scad>
 
-height = 8;
-symbolHeight = 4;
+height = 4;
+symbolHeight = 2;
 
-%cylinder(r = 16, center = true, h = height);
-linear_extrude(height = symbolHeight)
-text("A", halign = "center", valign = "center");
+%cylinder(r = symbolHeight * 4, center = true, h = height);
+
+translate([0, 0, (height / 2) - symbolHeight]) {
+    linear_extrude(height = symbolHeight) {
+        text("A", halign = "center", valign = "center");
+    }
+}
