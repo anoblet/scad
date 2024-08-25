@@ -34,13 +34,16 @@ module image() {
 
 // Base
 
-color("black") {
+%color("black") {
     cylinder(d=baseDiameter, h=height);
 }
 
+
 color("white") {
-    echo(textmetrics(text="A", font="Noto Sans", size=12, halign="center", valign="center"));
-    text("A", font="Noto Sans", size=12, halign="center", valign="center");
+    // echo(textmetrics(text="A", font="Noto Sans"/, size=12, halign="center", valign="center"));
+    linear_extrude(height = 1) {
+        text("MAIL", font="Noto Sans", size=12, halign="center", valign="center");
+    }
 }
 
 // color("white") {
