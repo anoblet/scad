@@ -11,5 +11,5 @@ sensorX = 24;
 sensorY = 6;
 sensorZ = 12;
 
-wall = 1;
-rounding = wall / 2;
+wallWidth = 1;
+rounding = wallWidth / 2;
