@@ -1,7 +1,7 @@
 include <../common/common.scad>
 
 height = 20;
-radius = 7.125;
+radius = 7; // 7.125
 thickness = 1;
 
 difference() {
