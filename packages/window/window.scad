@@ -1,7 +1,7 @@
 include <../common/common.scad>;
 
-x = 25; // 208
-y = 10; // 120
+x = 208; // 208
+y = 120; // 120
 z = 12;
 
 cuboid([x, y, z]);
