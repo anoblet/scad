@@ -1,5 +1,7 @@
-include <BOSL2/std.scad>
 include <../common/common.scad>;
+
+$fa = 0.4;
+$fs = 0.4;
 
 diameter = 50;
 height = 50;
@@ -9,18 +11,26 @@ handleX = 100;
 handleY = 25;
 
 rounding = handleY / 2;
-
+translate([handleX / 2, 0, 0]) {
+    cuboid([handleX, handleY, thickness], except=[BOTTOM,TOP], rounding = rounding);
+}
 
 difference() {
-    union() {
-        cylinder(d=diameter + thickness, h=height + thickness, center=true);
+    difference() {
 
-        translate([handleX / 2, 0, (height) / 2]) {
-            cuboid([handleX, handleY, thickness], except=[BOTTOM,TOP], rounding = rounding);
+        union() {
+                spheroid(d=50, style="icosa", circum=true, $fn=10);
+                translate([handleX / 2, 0, 0]) {
+                    cuboid([handleX, handleY, thickness], except=[BOTTOM,TOP], rounding = rounding);
+                }
         }
+
+        spheroid(d=50 - thickness, style="icosa", circum=true, $fn=10);
     }
 
-    translate([0, 0, thickness]) {
-        cylinder(d=diameter, h=height, center=true);
-    }
+
+
+  translate([0, 0, 50 + thickness / 2]) {
+    cuboid(100);
+  }
 }
