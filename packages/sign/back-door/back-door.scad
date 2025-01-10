@@ -17,7 +17,7 @@ module background() {
 }
 
 module foreground() {
-        linear_extrude(z) text("GENTLE !", size = 4, font = "Noto Sans:style=Bold", halign = "center", valign = "center");
+        linear_extrude(z) text("GENTLE :)", size = 4, font = "Noto Sans:style=Bold", halign = "center", valign = "center");
 }
 
 // background();
