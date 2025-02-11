@@ -1,11 +1,11 @@
 include <../common/common.scad>
 
 totalWidth = 270;
-columns = 3;
+columns = 5;
 
 // Parameters
-width = (totalWidth / columns) * 2;
-depth = (totalWidth / columns) * 2;
+width = (totalWidth / columns) * 3;
+depth = (totalWidth / columns) * 3;
 height = 20;
 thickness = 2;
 rounding = thickness / 2;
