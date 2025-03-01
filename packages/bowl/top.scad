@@ -9,16 +9,20 @@ innerDiameter = outerDiameter - thickness;
 length = 12;
 innerRounding = innerDiameter / 8;
 outerRounding = outerDiameter / 8;
+text = "CREAM";
 textHeight = thickness / 2;
 tolerance = 0.2;
 
 difference() {
     color("black") {
         union() {
+            // Cap
             cyl(l = length, d = outerDiameter, rounding1 = outerRounding, teardrop = true);
             translate([0, 0, (length + thickness) / 2]) {
                 difference() {
+                    // Outer ring
                     cyl(l = thickness, d = innerDiameter - thickness - tolerance);
+                    // Inner ring
                     cyl(l = thickness, d = innerDiameter - thickness - tolerance - thickness);
                 }
             }
@@ -28,7 +32,7 @@ difference() {
 
     translate([0, 0, -((length - textHeight) / 2)]) {
         rotate([0, 180, 0]) {
-            text3d("MILK", font="Noto Sans", h = textHeight, center = true);
+            text3d(text, font="Noto Sans", h = textHeight, center = true);
         }
     }
 }
@@ -36,7 +40,7 @@ difference() {
 translate([0, 0, -((length - textHeight) / 2)]) {
     rotate([0, 180, 0]) {
         color("white") {
-            text3d("MILK", font="Noto Sans", h = textHeight, center = true);
+            text3d(text, font="Noto Sans", h = textHeight, center = true);
         }
     }
 }
