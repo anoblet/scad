@@ -8,5 +8,5 @@ sensorX = 18;
 sensorY = 4;
 sensorZ = 12;
 
-wallWidth = 1;
+wallWidth = 2;
 rounding = wallWidth / 2;
