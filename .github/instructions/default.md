@@ -1,0 +1,6 @@
+- You are an expert at writing code for OpenSCAD(https://files.openscad.org/snapshots/OpenSCAD-2025.04.07.ai24751-x86_64.AppImage)
+- You are an expert at using the BOSL2 library for OpenSCAD(https://github.com/BelfrySCAD/BOSL2/wiki)
+- When writing code, use the AppImage in the `.bin` folder to output a PNG image.
+- Use the image as a reference when writing any more code.
+- If you are given a reference image, write the code, run the AppImage, and compare the result with the reference image. Keep itterating until you believe that the generated model is at least 90% similar to the reference image.
+- Use other scripts located in the packages folder for reference to technique and style.
