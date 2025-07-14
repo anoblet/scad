@@ -18,36 +18,6 @@ symbolLength = 4;
 
 spacing = 4;
 
-// Generate a grid of hexagonal holes inside a circle, staggered for even distribution
-module circleGrid() {
-    inside = circle($fn=6, d=innerDiameter - symbolLength);
-    translate([0, 0, -(thickness / 2)]) {
-        // grid_copies places repeated features in a grid pattern, staggered for hex tiling
-        grid_copies(inside=inside, size = innerDiameter - spacing, spacing=spacing, stagger = true) {
-            // Each grid cell contains a rotated hexagonal cylinder "hole"
-            zrot(180/6) cylinder($fn = 6, d=symbolLength, h=thickness);
-        }
-    }
-}
-
-// Create a hexagonal grid pattern within a circular boundary
-module hexagonGrid () {
-    intersection() {
-        // Limit the grid to a circular region
-        cylinder($fn = 6, d = innerDiameter, h = topHeight, center = true);
-        // Define the area for grid placement
-        inside = circle(d=innerDiameter);
-        translate([0, 0, -(thickness / 2)]) {
-            // Place hexagonal cylinders in a staggered grid pattern
-            grid_copies(spacing=4, stagger=true, inside=inside) {
-                zrot(180/6) {
-                    cylinder(h=thickness, d=symbolLength);
-                }
-            }
-        }
-    }
-}
-
 // Create a hollow cylinder with specified wall thickness
 module emptyCylinder(diameter, thickness, height) {
     difference() {
@@ -90,8 +60,8 @@ rotate([0, 0, 45]) {
 module circles() {
     union() {
         // Each iteration creates a ring, decreasing in diameter
-        for ( i = [0 : 4] ){
-            emptyCylinder(innerDiameter - ((thickness * 3) * i), thickness * 2, topHeight);
+        for ( i = [0 : 3] ){
+            emptyCylinder(innerDiameter - ((thickness * 4) * i), thickness * 3, topHeight);
         }
     }
 }
