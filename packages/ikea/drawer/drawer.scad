@@ -1,11 +1,9 @@
-include <BOSL2/std.scad>
-
-$fn = $preview ? 32 : 128;
+include <../../common/common.scad>
 
 // Parameters
 totalWidth = 296;
 columns = 3;
-width = (totalWidth / columns);
+width = (totalWidth / columns) * 2;
 depth = totalWidth / columns;
 height = 48;
 thickness = 2;
