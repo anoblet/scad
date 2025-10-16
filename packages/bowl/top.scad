@@ -25,9 +25,9 @@ module top() {
     translate([0, 0, (length + thickness) / 2]) {
         difference() {
             // Outer ring
-            cyl(l = thickness, d = innerDiameter - tolerance);
+            cyl(l = thickness, d = innerDiameter - thickness - tolerance);
             // Inner ring
-            cyl(center = true, l = thickness * 8, d = innerDiameter - thickness - tolerance);
+            cyl(center = true, l = thickness * 6, d = innerDiameter - thickness * 3 - tolerance);
         }
     }
 }
