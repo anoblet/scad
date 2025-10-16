@@ -1,0 +1,9 @@
+{
+  "instructions": {
+    "chroma": "../copilot/instructions/tools/chroma.instructions.md",
+    "principles": "../copilot/instructions/principles.instructions.md",
+    "sequential-thinking": "../copilot/instructions/tools/sequential-thinking.instructions.md",
+    "time-limit": "../copilot/.github/instructions/test.instructions.md"
+  }
+}
+ 

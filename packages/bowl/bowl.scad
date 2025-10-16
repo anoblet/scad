@@ -4,9 +4,9 @@ $fa = $preview ? 12 : 0.16;
 $fs = $preview ? 2 : 0.16;
 
 thickness = 2;
-outerDiameter = 96;
+outerDiameter = 128;
 innerDiameter = outerDiameter - thickness;
-length = 64;
+length = 72;
 innerRounding = innerDiameter / 8;
 outerRounding = outerDiameter / 8;
 
