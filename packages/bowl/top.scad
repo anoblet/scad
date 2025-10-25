@@ -9,25 +9,20 @@ innerDiameter = outerDiameter - thickness;
 length = 12;
 innerRounding = innerDiameter / 12;
 outerRounding = outerDiameter / 12;
-text = "SUGAR";
+text = "MILK";
 textHeight = thickness / 2;
 textSize = 12;
 tolerance = 0.2;
 
-module top() {
-    difference() {
-        cyl(l = length, d = outerDiameter, rounding1 = outerRounding, teardrop = true);
-        translate([0,0, (length + thickness) / 2]) {
-            cyl(center = true, l = thickness * 8, d = innerDiameter - thickness - tolerance);
-        }
-    }
-
+module base() {
+    // Cap
+    cyl(l = length, d = outerDiameter, rounding1 = outerRounding, teardrop = true);
     translate([0, 0, (length + thickness) / 2]) {
         difference() {
             // Outer ring
             cyl(l = thickness, d = innerDiameter - thickness - tolerance);
             // Inner ring
-            cyl(center = true, l = thickness * 6, d = innerDiameter - thickness * 3 - tolerance);
+            cyl(l = thickness, d = innerDiameter - thickness - tolerance - thickness);
         }
     }
 }
@@ -41,7 +36,7 @@ module text() {
 }
 
 color("black") {
-    top();
+    base();
 }
 
 color("white") {
