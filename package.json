@@ -21,7 +21,6 @@
     "push": "npm run git:push"
   },
   "devDependencies": {
-    "genaisrc": "file:genaisrc",
     "sort-package-json": "^2.4.1",
     "wireit": "^0.9.5"
   },
