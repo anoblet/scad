@@ -1,6 +1,6 @@
 // Import BOSL2 standard library for utility modules and functions
-include <BOSL2/std.scad>
-include <BOSL2/joiners.scad>
+include <../../lib/BOSL2/std.scad>
+include <../../lib/BOSL2/joiners.scad>
 
 // Import custom battery module from relative path for battery-related geometry
 include <../battery/battery.scad>
