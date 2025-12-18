@@ -1,3 +1,9 @@
 [submodule "copilot"]
 	path = copilot
 	url = https://github.com/anoblet/copilot.git
+[submodule "BOSL2"]
+	path = BOSL2
+	url = git@github.com:BelfrySCAD/BOSL2.git
+[submodule "lib/BOSL2"]
+	path = lib/BOSL2
+	url = git@github.com:BelfrySCAD/BOSL2.git
