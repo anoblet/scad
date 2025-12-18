@@ -2,7 +2,7 @@
 
 ## Prompt
 
-```
+```markdown
 Generate a fully functionable drain plug for a US sink. Use concentric circles to filter the water. Use a cross to allow the model to be 3D printed. The model should be upside down with the base on the bottom. Use the executable in the (bin) folder to render the model. Evaluate the rendered image of the model. Iterrate until you have statisfied all of the requirements. Place your generated script in (packages/bathroom/sink/drain.scad). Use the OpenSCAD executable to create a PNG, and STL file of the model.
 ```
 
