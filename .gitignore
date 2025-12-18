@@ -2,10 +2,7 @@
 .copilot
 .env
 .wireit
+bin
 node_modules
 
 *.3mf
-*.stl
-
-bin
-*.
