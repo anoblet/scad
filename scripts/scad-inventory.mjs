@@ -39,7 +39,7 @@ const stats = {
   includesBosl2Angle: [],
   overridesFaFsFn: [],
   hasMainModule: [],
-  callsMainAtEof: []
+  callsMainAtEof: [],
 };
 
 for (const file of scadFiles) {
@@ -91,15 +91,21 @@ const md = [
   "",
   `Total .scad files under packages/: ${stats.total}`,
   "",
-  section("Includes packages/common/common.scad (any depth)", stats.includesCommon),
+  section(
+    "Includes packages/common/common.scad (any depth)",
+    stats.includesCommon
+  ),
   "",
-  section("Includes <BOSL2/...> (legacy angle-bracket imports)", stats.includesBosl2Angle),
+  section(
+    "Includes <BOSL2/...> (legacy angle-bracket imports)",
+    stats.includesBosl2Angle
+  ),
   "",
   section("Overrides $fa/$fs/$fn (any assignment)", stats.overridesFaFsFn),
   "",
   section("Defines module main()", stats.hasMainModule),
   "",
-  section("Calls main(); (line-end match)", stats.callsMainAtEof)
+  section("Calls main(); (line-end match)", stats.callsMainAtEof),
 ].join("\n");
 
 const outPath = path.join(repoRoot, "docs", "package-inventory.md");

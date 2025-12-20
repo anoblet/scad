@@ -27,7 +27,14 @@ function stringifyDefineValue(value) {
   return JSON.stringify(value);
 }
 
-function runOpenScad({ appImagePath, scadPath, outPath, format, img, defines }) {
+function runOpenScad({
+  appImagePath,
+  scadPath,
+  outPath,
+  format,
+  img,
+  defines,
+}) {
   const args = ["-o", outPath];
 
   if (format === "png") {
@@ -45,9 +52,9 @@ function runOpenScad({ appImagePath, scadPath, outPath, format, img, defines }) 
     cwd: repoRoot,
     env: {
       ...process.env,
-      APPIMAGE_EXTRACT_AND_RUN: "1"
+      APPIMAGE_EXTRACT_AND_RUN: "1",
     },
-    encoding: "utf8"
+    encoding: "utf8",
   });
 
   const combined = `${result.stdout ?? ""}\n${result.stderr ?? ""}`.trim();
@@ -70,7 +77,7 @@ function usage() {
       "Usage:",
       "  node scripts/scad-export.mjs validate [--id <targetId>]",
       "  node scripts/scad-export.mjs release  [--id <targetId>]",
-      "  node scripts/scad-export.mjs check"
+      "  node scripts/scad-export.mjs check",
     ].join("\n")
   );
 }
@@ -79,8 +86,13 @@ const manifestPath = path.join(repoRoot, "export.manifest.json");
 if (!fs.existsSync(manifestPath)) die("Missing export.manifest.json");
 
 const manifest = readJson(manifestPath);
-const appImagePath = path.join(repoRoot, "bin", "OpenSCAD-2025.12.17.ai30001-x86_64.AppImage");
-if (!fs.existsSync(appImagePath)) die(`Missing pinned OpenSCAD AppImage at ${appImagePath}`);
+const appImagePath = path.join(
+  repoRoot,
+  "bin",
+  "OpenSCAD-2025.12.17.ai30001-x86_64.AppImage"
+);
+if (!fs.existsSync(appImagePath))
+  die(`Missing pinned OpenSCAD AppImage at ${appImagePath}`);
 
 const cmd = process.argv[2] ?? "validate";
 const args = process.argv.slice(3);
@@ -143,7 +155,7 @@ function exportTargets(mode) {
         outPath,
         format,
         img,
-        defines: target.defines
+        defines: target.defines,
       });
 
       if (!result.ok) {
@@ -186,7 +198,10 @@ function runChecks() {
       .replaceAll(".", "_")
       .replaceAll("-", "_");
 
-    const scadCheckPath = path.join(checkDir, `include_no_geometry__${slug}.scad`);
+    const scadCheckPath = path.join(
+      checkDir,
+      `include_no_geometry__${slug}.scad`
+    );
     const stlOutPath = path.join(checkDir, `include_no_geometry__${slug}.stl`);
 
     const includePath = absPath.replaceAll(path.sep, "/");
@@ -198,7 +213,7 @@ function runChecks() {
       outPath: stlOutPath,
       format: "stl",
       img,
-      defines: {}
+      defines: {},
     });
 
     // If the include emits geometry at top level, OpenSCAD will usually not report an empty object.
