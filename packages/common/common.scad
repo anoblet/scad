@@ -1,14 +1,15 @@
-// Import BOSL2 standard library for utility modules and functions
-include <../../lib/BOSL2/std.scad>
-include <../../lib/BOSL2/joiners.scad>
+// Model-facing repo defaults and BOSL2 wiring.
+//
+// Prefer this file in models: `include <../common/common.scad>`.
+// For side-effect-free imports in libraries, use: `include <../common/common_use.scad>`.
 
-// Import custom battery module from relative path for battery-related geometry
-include <../battery/battery.scad>
+include <common_use.scad>
 
-// Use a specific font for text rendering; ensures consistent typography in generated models
+// Use a specific font for text rendering; ensures consistent typography in generated models.
 use <NotoSans-VariableFont_wdth,wght.ttf>
 
-// Set angular and segment resolution for preview and final render
-// $fa and $fs control facet angle and size for smoother or faster rendering
-$fa = $preview ? 12 : 0.01;
-$fs = $preview ? 2 : 0.01;
+// Tessellation policy:
+// - Coarser in preview for fast interaction
+// - Reasonable default quality for export (override locally inside `main()` when needed)
+$fa = $preview ? 12 : 2;
+$fs = $preview ? 2 : 0.25;

@@ -1,7 +1,5 @@
-include <BOSL2/std.scad>
-include <BOSL2/threading.scad>
-
-$fn = 128;
+include <../common/common_threading.scad>;
+use <../modules/assemblies/threaded_standoff.scad>;
 
 scale = 1;
 
@@ -17,18 +15,21 @@ screwDiameter = centerDiameter / 2;
 pitch = screwHeight / 5;
 slop = 0.25;
 
-// Top
-threaded_rod(d = screwDiameter, height = screwHeight, pitch = pitch);
+module main(fn_override=undef) {
+    $fn = is_undef(fn_override) ? 0 : fn_override;
 
-// Center
-translate([0, 0, -(screwHeight / 2 + centerHeight / 2)]) {
-    cylinder(center = true, d = centerDiameter, h = centerHeight);
+    threaded_standoff(
+        center_d=centerDiameter,
+        center_h=centerHeight,
+        rod_d=screwDiameter,
+        rod_h=screwHeight,
+        pitch=pitch,
+        rod=true,
+        nut=true,
+        nut_h=screwHeight,
+        slop=slop,
+        direction=-1
+    );
 }
 
-// Bottom
-translate([0, 0, -((screwHeight / 2) + centerHeight + (screwHeight / 2))]) {
-    intersection() {
-        cylinder(center = true, d = centerDiameter, h = screwHeight);
-        threaded_nut(nutwidth = centerDiameter * 2, id = screwDiameter, h = screwHeight, pitch = pitch, $slop = slop, shape = "square");
-    }
-}
+main();

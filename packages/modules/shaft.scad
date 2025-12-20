@@ -1,21 +1,38 @@
-tolerance = 0;
+include <../common/common_use.scad>;
 
-28byj48_shaft_radius = 5/2;
-28byj48_shaft_height = 10;
-28byj48_shaft_slotted_width = 3 + tolerance;
-28byj48_shaft_slotted_height = 6;
+module shaft_28byj48(
+    tolerance=0,
+    shaft_d=5,
+    shaft_h=10,
+    slot_w=3,
+    slot_h=6,
+    fn_override=undef
+) {
+    eps = 0.01;
 
-eps = 0.01;
-$fn = 60;
+    assert(tolerance >= 0, "tolerance must be >= 0");
+    assert(shaft_d > 0, "shaft_d must be > 0");
+    assert(shaft_h > 0, "shaft_h must be > 0");
+    assert(slot_w >= 0, "slot_w must be >= 0");
+    assert(slot_h >= 0 && slot_h <= shaft_h, "slot_h must be in [0, shaft_h]");
 
-module shaft() {
+    shaft_r = shaft_d / 2;
+    slotted_w = slot_w + tolerance;
+
     difference() {
-        cylinder(r=28byj48_shaft_radius, h=28byj48_shaft_height);
-        translate([-(28byj48_shaft_radius + eps), 28byj48_shaft_slotted_width / 2, 28byj48_shaft_height - 28byj48_shaft_slotted_height]) {
-            cube([(28byj48_shaft_radius+eps)*2, 28byj48_shaft_radius, 28byj48_shaft_slotted_height+eps]);
-        }
-        translate([-(28byj48_shaft_radius + eps), - 28byj48_shaft_radius - (28byj48_shaft_slotted_width / 2), 28byj48_shaft_height - 28byj48_shaft_slotted_height]) {
-            cube([(28byj48_shaft_radius+eps)*2, 28byj48_shaft_radius, 28byj48_shaft_slotted_height+eps]);
-        }
+        // Default orientation: Z+ up, base at z=0.
+        cyl(d=shaft_d, h=shaft_h, anchor=BOT, $fn=fn_override);
+
+        // Two flats to form the typical 28BYJ-48 shaft profile.
+        translate([-(shaft_r + eps), slotted_w / 2, shaft_h - slot_h])
+            cube([(shaft_r + eps) * 2, shaft_r, slot_h + eps]);
+
+        translate([-(shaft_r + eps), -shaft_r - (slotted_w / 2), shaft_h - slot_h])
+            cube([(shaft_r + eps) * 2, shaft_r, slot_h + eps]);
     }
+}
+
+// Backward-compatible alias.
+module shaft(tolerance=0, fn_override=undef) {
+    shaft_28byj48(tolerance=tolerance, fn_override=fn_override);
 }

@@ -18,6 +18,10 @@
     "commit": "npm run git:commit",
     "git:commit": "wireit",
     "git:push": "wireit",
+    "scad:check": "node scripts/scad-export.mjs check",
+    "scad:inventory": "node scripts/scad-inventory.mjs",
+    "scad:release": "node scripts/scad-export.mjs release",
+    "scad:validate": "node scripts/scad-export.mjs validate",
     "push": "npm run git:push"
   },
   "devDependencies": {

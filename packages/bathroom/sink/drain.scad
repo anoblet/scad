@@ -1,8 +1,5 @@
 include <../../common/common.scad>;
 
-$fa = $preview ? 12 : 0.16;
-$fs = $preview ? 2 : 0.16;
-
 // sessionId: 20251218045327
 
 function _pick(v, dflt) = is_undef(v) ? dflt : v;

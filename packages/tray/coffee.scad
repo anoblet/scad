@@ -1,22 +1,25 @@
-include <../common/common.scad>
+include <../common/common.scad>;
+use <../modules/primitives/hollow_shell.scad>;
 
-// Set the wall thickness and overall outer dimensions
-thickness = 2;
-outerWidth = 192;
-outerDepth = 192;
-outerHeight = 10;
+module coffee_tray(
+    wall=2,
+    outer_w=192,
+    outer_d=192,
+    outer_h=10,
+    rounding=undef
+) {
+    _rounding = is_undef(rounding) ? outer_w / 64 : rounding;
 
-// Calculate the inner dimensions based on the wall thickness
-innerWidth = outerWidth - (thickness * 2);
-innerDepth = outerDepth - (thickness * 2);
-innerHeight = outerHeight - thickness;
-
-// Set the rounding radius for outer and inner cuboids
-outerRounding = outerWidth / 64;
-innerRounding = innerWidth / 64;
-
-difference() {
-    cuboid([outerWidth, outerDepth, outerHeight], except=[BOTTOM,TOP], rounding = outerRounding);
-    translate([0,0,thickness])
-    cuboid([innerWidth, innerDepth, innerHeight], except=[BOTTOM,TOP], rounding = innerRounding);
+    open_top_cuboid_shell(
+        size=[outer_w, outer_d, outer_h],
+        wall=wall,
+        rounding=_rounding,
+        anchor=BOT
+    );
 }
+
+module main() {
+    coffee_tray();
+}
+
+main();

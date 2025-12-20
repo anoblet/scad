@@ -1,35 +1,40 @@
-include <../common/common.scad>
+include <../common/common.scad>;
+use <../modules/primitives/hollow_shell.scad>;
 
-$fa = $preview ? 12 : 0.32;
-$fs = $preview ? 2 : 0.32;
+module spoon_holder(
+    wall=2,
+    outer_w=50,
+    outer_h=75,
+    outer_z=16,
+    rounding=undef,
+    slot_w=undef,
+    slot_h=undef,
+    slot_y=undef
+) {
+    _rounding = is_undef(rounding) ? outer_w / 4 : rounding;
+    _slot_w = is_undef(slot_w) ? outer_w / 4 : slot_w;
+    _slot_h = is_undef(slot_h) ? outer_h / 2 : slot_h;
+    _slot_y = is_undef(slot_y) ? (outer_h / 4) + wall : slot_y;
 
-// Set the wall thickness and overall outer dimensions
-thickness = 2;
-outerWidth = 50;
-outerHeight = 75;
-length = 16;
+    assert(wall >= 0, "wall must be >= 0");
+    assert(outer_w > 0 && outer_h > 0 && outer_z > 0, "outer dimensions must be > 0");
 
-// Calculate the inner dimensions based on the wall thickness
-innerWidth = outerWidth - thickness;
-innerHeight = outerHeight - thickness;
-
-// Set the rounding radius for outer and inner cuboids
-outerRounding = outerWidth / 4;
-innerRounding = innerWidth / 4;
-
-difference() {
-    // Create a hollowed, rounded cuboid shell by subtracting a smaller cuboid from a larger one
     difference() {
-        // Outer shell with rounded vertical edges, flat top and bottom
-        cuboid([outerWidth, outerHeight, length], rounding = outerRounding, except = [BOTTOM, TOP]);
-        translate([0, 0, thickness]) {
-            // Inner cutout, inset by wall thickness, to create the hollow
-            cuboid([innerWidth, innerHeight, length], rounding = innerRounding, except = [BOTTOM, TOP]);
-        }
-    }
-    // Subtract a slot from the shell, positioned off-center vertically
-    translate([0, (outerHeight / 4) + thickness, (length / 2)]) {
-        // Slot is a small cuboid with minimal rounding, possibly for cable or feature access
-        cuboid([outerWidth / 4, outerHeight / 2, length], rounding = innerRounding / 8);
+        open_top_cuboid_shell(
+            size=[outer_w, outer_h, outer_z],
+            wall=wall,
+            rounding=_rounding,
+            anchor=BOT
+        );
+
+        // Slot cutout.
+        translate([0, _slot_y, 0])
+            cuboid([_slot_w, _slot_h, outer_z], rounding=max(0, _rounding / 8), anchor=BOT);
     }
 }
+
+module main() {
+    spoon_holder();
+}
+
+main();

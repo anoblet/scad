@@ -1,29 +1,36 @@
 include <../common/common.scad>;
 
-x = 29;
-y =  66;
-z = 2;
+module strike_plate(
+    x=29,
+    y=66,
+    z=2,
+    inner_x=22.5,
+    inner_y=30,
+    rounding=2,
+    screw_d=5,
+    screw_edge_offset=undef
+) {
+    _screw_edge_offset = is_undef(screw_edge_offset) ? (screw_d * 2) : screw_edge_offset;
 
-innerX = 22.5;
-innerY = 30;
-
-rounding = 2;
-screwDiameter = 5;
-
-difference() {
     difference() {
-        cuboid([x, y, z], except=[BOTTOM,TOP], rounding = rounding);
+        difference() {
+            cuboid([x, y, z], except=[BOTTOM, TOP], rounding=rounding);
 
-        union() {
-            translate([0, (y / 2) - screwDiameter * 2, 0]) {
-                cylinder(d = 5, center = true, h = z);
-            }   
+            union() {
+                translate([0, (y / 2) - _screw_edge_offset, 0])
+                    cylinder(d=screw_d, center=true, h=z);
 
-            translate([0, -((y / 2) - screwDiameter * 2), 0]) {
-                cylinder(d = 5, center = true, h = z);
+                translate([0, -((y / 2) - _screw_edge_offset), 0])
+                    cylinder(d=screw_d, center=true, h=z);
             }
         }
-    }
 
-    cuboid([innerX, innerY, z], except=[BOTTOM,TOP], rounding = rounding);
+        cuboid([inner_x, inner_y, z], except=[BOTTOM, TOP], rounding=rounding);
+    }
 }
+
+module main() {
+    strike_plate();
+}
+
+main();

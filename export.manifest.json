@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "outputsDir": "out",
+  "img": {
+    "size": [
+      1200,
+      900
+    ],
+    "projection": "o"
+  },
+  "targets": [
+    {
+      "id": "bathroom-sink-drain",
+      "path": "packages/bathroom/sink/drain.scad",
+      "formats": [
+        "png",
+        "stl"
+      ]
+    },
+    {
+      "id": "door-strike-plate",
+      "path": "packages/door/strike-plate.scad",
+      "formats": [
+        "png",
+        "stl"
+      ]
+    },
+    {
+      "id": "spoon-holder",
+      "path": "packages/spoon/spoon.scad",
+      "formats": [
+        "png",
+        "stl"
+      ]
+    },
+    {
+      "id": "tray-coffee",
+      "path": "packages/tray/coffee.scad",
+      "formats": [
+        "png",
+        "stl"
+      ]
+    }
+  ],
+  "checks": {
+    "includeNoGeometry": [
+      "packages/modules/modules.scad",
+      "packages/modules/shaft.scad",
+      "packages/modules/primitives/hollow_shell.scad",
+      "packages/modules/assemblies/threading_helpers.scad",
+      "packages/modules/assemblies/threaded_standoff.scad"
+    ]
+  }
+}
