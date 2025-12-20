@@ -62,3 +62,12 @@
   - If link.json references missing targets (e.g., a missing agent markdown), fix the source in copilot/agents/ rather than patching symlinks.
 
 </instructions>
+
+<references>
+- [OpenSCAD User Manual](https://en.wikibooks.org/wiki/OpenSCAD_User_Manual)
+- [BOSL2 GitHub Repository](https://github.com/revarbat/BOSL2)
+</references>
+
+<bin>
+- [OpenSCAD](../bin/OpenSCAD-2025.12.17.ai30001-x86_64.AppImage)
+</bin>
