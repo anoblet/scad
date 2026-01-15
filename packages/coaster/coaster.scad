@@ -1,15 +1,12 @@
 include <../common/common.scad>
 
-$fa = $preview ? 12 : 0.08;
-$fs = $preview ? 2 : 0.08;
-
 nozzleDiameter = 0.4;
 
 outerHeight = 10;
 innerHeight = 2;
 border = 2;
 radius = 50;
-raisedHeight = nozzleDiameter / 2;
+raisedHeight = nozzleDiameter;
 tolerance = nozzleDiameter;
 
 cylinder(h = border, r = radius - border - tolerance);
