@@ -1,0 +1,29 @@
+{
+    "fileFormatVersion": "1",
+    "parameterSets": {
+        "New set 1": {
+            "bottom_closure_angle": "270",
+            "bottom_radius": "20",
+            "connector_length": "15",
+            "profile_radius": "5",
+            "top_closure_angle": "240",
+            "top_radius": "20"
+        },
+        "New set 2": {
+            "bottom_closure_angle": "300",
+            "bottom_radius": "10",
+            "connector_length": "15",
+            "profile_radius": "2",
+            "top_closure_angle": "240",
+            "top_radius": "20"
+        },
+        "New set 3": {
+            "bottom_closure_angle": "270",
+            "bottom_radius": "8",
+            "connector_length": "15",
+            "profile_radius": "2",
+            "top_closure_angle": "270",
+            "top_radius": "16"
+        }
+    }
+}

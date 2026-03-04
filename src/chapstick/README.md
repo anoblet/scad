@@ -1,0 +1,3 @@
+I'm offering you a once in a lifetime opportunity to get in on the ground floor of an investment in a innovative, revolutionary, life changing product. For as little as $500,000 you could stake ownership in a company that is about the change the world. What is our product you ask? I give you the extended chapstick cap!
+
+* Disclaimer: I use a lot of chapstick, and tend to have to throw out a lot of them because they break inside of the cap. This allows you to extend the chapstick as far as you want without the fear of it breaking when you put the cap back on.

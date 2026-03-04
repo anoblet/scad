@@ -1,1 +1,0 @@
-- Use TSDOC to generate documentation

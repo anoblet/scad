@@ -1,10 +1,9 @@
+*.3mf
+
 .chroma
 .copilot
 .env
 .wireit
 bin
 node_modules
-
-out
-
-*.3mf
+tmp

@@ -1,0 +1,1 @@
+- Should dimensions be for the inside or the outside? - Inside
