@@ -5,7 +5,7 @@ radius = 7.125; // 7.125
 thickness = 1;
 
 difference() {
-    cylinder(h = height, r = radius + (thickness / 2), center = true);
+    cylinder(h = height, r = radius + thickness, center = true);
     translate([0, 0, thickness]) {
         cylinder(h = height, r = radius, center = true);
     }
