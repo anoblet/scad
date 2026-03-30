@@ -1,4 +1,5 @@
 *.3mf
+*.jpg
 
 .chroma
 .copilot
@@ -7,3 +8,5 @@
 bin
 node_modules
 tmp
+
+TASKS.md
