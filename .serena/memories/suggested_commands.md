@@ -1,0 +1,6 @@
+- Validate all targets: npm run scad:validate
+- Check manifest/targets: npm run scad:check
+- Release/export: npm run scad:release
+- Build inventory: npm run scad:inventory
+- Validate one target: npm run scad:validate -- --id <target>
+- Release one target: npm run scad:release -- --id <target>

@@ -1,0 +1,3 @@
+- Purpose: OpenSCAD model repository with export/inventory automation and pinned OpenSCAD AppImage for reproducible outputs.
+- Stack: OpenSCAD models under src/, Node.js scripts, pnpm-managed workspace, some TypeScript-focused repo conventions.
+- Structure: src/ for models, packages/ for shared content, docs/ for conventions, scripts/ for export/inventory automation, bin/ for pinned OpenSCAD, out/ for generated artifacts.

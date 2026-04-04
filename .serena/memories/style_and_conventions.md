@@ -1,0 +1,6 @@
+- For exportable models prefer include <../common/common.scad> or deeper relative equivalent.
+- Exportable SCAD files should define module main() { ... } and call main(); at EOF.
+- Avoid include-time geometry outside main() in module/library surfaces.
+- Units are millimeters and Z is up.
+- Keep edits scoped; do not hand-edit generated outputs under out/.
+- Use pnpm/Node.js tooling for repository scripts.
