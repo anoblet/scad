@@ -1,9 +1,17 @@
 # No Kings
 
-## Reference
+## References
 
-- [reference](./reference/)
+- [reference](reference)
 
-- Use the reference files to create a design that symbolizes that Kings are not welcome in a democracy. The design should be simple and easily recognizable, making it effective for use in various contexts such as posters, stickers, or social media graphics. The cross can be designed in a way that it intersects with a crown or a king's silhouette to clearly convey the message. The design should be optimized for 3D printing, with a focus on simplicity to ensure a successful print. The final design should be saved in both SVG and SCAD formats, allowing for easy editing and use in various applications. The SVG format will be useful for 2D applications, while the SCAD format will allow for 3D modeling and printing.
-- Use 4 colors: black circle, white background, yellow crown and red cross.
-- Generate a SCAD file from the reference files in `src/no-kings/reference`, and place it in `src/no-kings/no-kings.scad`.
+## Description
+
+- Flat coin (2mm thickness, 64mm diameter) with a circular outline and a crown in the center, overlaid with a full X that bisects the crown.
+- Circular black outline, white fill, gold crown, red cross
+- The crown is centered in the circle and scaled to fit inside the inner edge of the outline ring.
+- The cross is a full X, not a single slash, and it bisects the crown
+- The design should be a clean geometric badge, not a rough or hand-drawn style.
+- Parametric
+- No text
+- Printable as a 3D badge or coin
+- [crown-outline.svg](reference/crown-outline.svg) is the intended crown silhouette to use in the SCAD file.

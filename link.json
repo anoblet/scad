@@ -21,6 +21,7 @@
     "../copilot/.github/copilot-instructions.md"
   ],
   ".vscode": [
+    "../copilot/.vscode/extensions.json",
     "../copilot/.vscode/mcp.json",
     "../copilot/.vscode/settings.json"
   ]
