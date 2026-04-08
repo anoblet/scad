@@ -7,14 +7,14 @@ field_diameter = coin_diameter - (ring_width * 2);
 field_relief_depth = 0;
 flat_preview = false;
 
-crown_width_ratio = 0.5;
-crown_width = field_diameter * crown_width_ratio;
-crown_vertical_offset = -0.2;
+crown_scale = 6;
+crown_vertical_offset = 0;
 
-x_bar_width = 2.0;
-x_angle = 35;
-x_length_ratio = 0.75;
+x_bar_width = 3.0;
+x_angle = 40;
+x_length_ratio = 0.9;
 x_length = field_diameter * x_length_ratio;
+cross_rounding_radius = 1;
 
 preview_cross_lift = 0;
 
@@ -35,7 +35,10 @@ module badge_ring_2d() {
 
 module crown_shape_2d() {
     translate([0, crown_vertical_offset]) {
-        scale([crown_width / 24, crown_width / 24]) {
+        scale([
+            crown_scale,
+            crown_scale,
+        ]) {
             import("reference/crown-outline.svg", center = true);
         }
     }
@@ -51,12 +54,14 @@ module clipped_crown_2d() {
 module cross_shape_2d() {
     intersection() {
         badge_field_2d();
-        union() {
-            rotate(x_angle) {
-                square([x_length, x_bar_width], center = true);
-            }
-            rotate(-x_angle) {
-                square([x_length, x_bar_width], center = true);
+        round2d(cross_rounding_radius) {
+            union() {
+                rotate(x_angle) {
+                    square([x_length, x_bar_width], center = true);
+                }
+                rotate(-x_angle) {
+                    square([x_length, x_bar_width], center = true);
+                }
             }
         }
     }
